@@ -19,7 +19,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.8",
     "ratelimiter": "^3.4.1",
-    "xss": "^1.0.11"
+    "swagger-ui-express": "^4.3.0",
+    "xss": "^1.0.11",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

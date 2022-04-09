@@ -6,10 +6,14 @@ import AuthRouter from "./router/auth_router.js"
 import JobsRouter from "./router/router_jobs.js"
 import AuthMiddleware from "./middleware/authentication.js"
 import {} from "dotenv/config"
-
 import helmet from "helmet";
 import cors from "cors"
 import xss from "xss"
+
+import swagger from "swagger-ui-express"
+import yaml from "yamljs"
+
+const swaggerDoc = yaml.load("./swagger.yaml")
 // import rateLimit from "ratelimiter"
 
 // import { Router } from "./Routers/router.js";
@@ -32,9 +36,10 @@ app.use(cors())
 
 
 // app.use(express.static("./view"));
+app.use("/api-doc", swagger.serve, swagger.setup(swaggerDoc))
 
 app.get("/", (req, res)=>{
-	res.send("jobs api")
+	res.send('<h1>job api</h1><a href="/api-doc">Documentation</a>')
 })
 // router
 app.use("/api/v1/jobs", AuthMiddleware, JobsRouter);
