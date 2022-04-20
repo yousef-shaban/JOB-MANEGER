@@ -5,8 +5,6 @@ import bcrypt from "bcryptjs"
 import Jwt from "jsonwebtoken";
 import {} from "dotenv/config"
 const login = async (req, res, next) => {
-
-    
     try {
         const {email, password} = req.body
         // if(!email || !password)
@@ -28,7 +26,12 @@ const login = async (req, res, next) => {
         }
 
         const token = user.createJWT()
-        res.status(200).json({user:{name: user.name}, token});
+
+        req.headers.authorization = `Bearer ${token}`
+
+        res.cookie("token", token, { maxAge: 900000, httpOnly: true });
+        
+        res.status(200).json({user:{name: user.name}, token})
 
     } catch (error) {
 

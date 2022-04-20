@@ -44,7 +44,7 @@ const createJob = async (req, res, next) => {
 	try {
 		req.body.createdBy = req.user.UserId;
 		const job = await jobSchema.create(req.body);
-
+		console.log(job);
 		res.status(200).json({ job });
 	} catch (error) {
 		next(error);
@@ -61,6 +61,7 @@ const updateJob = async (req, res, next) => {
                 createdBy: req.user.UserId,
             },
             req.body,
+			{new: true}
             );
 
         if (!updated) {
@@ -68,6 +69,8 @@ const updateJob = async (req, res, next) => {
             throw new unauthorized("no jobs");
             
         }
+		// console.log(updated);
+		console.log(req.body);
         res.status(200).json({ status: "updated", updated });
 
 	} catch (error) {
@@ -81,7 +84,7 @@ const deleteJob = async (req, res, next) => {
 
         const deletedJob = await jobSchema.deleteOne(
             {
-                _id: req.params.id,
+                _id:  req.params.id,
                 createdBy: req.user.UserId,
             });
 

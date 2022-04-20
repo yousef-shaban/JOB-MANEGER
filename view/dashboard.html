@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content=" 
+
+            script-src 'unsafe-inline';
+            connect-src *;
+            img-src 'self' data: content:;
+            font-src *;"> -->
+<meta http-equiv="Content-Security-Policy" content="
+connect-src 'self' *;
+script-src 'self' 'unsafe-inline' https://kit.fontawesome.com">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/af60e830cf.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style/style.css">
+
+    <title>JOB API</title>
+</head>
+
+<body>
+    
+    <div class="header">
+        <div class="logo"></div>
+        <div class="btn-container">
+            <button id="info-btn"><span>name</span></button>
+            <div class="dropdown"><button id="logout-btn">logout</button></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="job-add">
+            <div class="title">
+                <p>GET / ADD JOB</p>
+            </div>
+            <form id="job-form">
+                <input id="position" type="text" placeholder="position">
+                <input id="company" type="text" placeholder="company">
+                <input id="addjob" type="submit" value="GET / ADD JOB">
+            </form>
+        </div>
+    </div>
+
+    <div class="jobs">
+        <div id="jobs-container" class="container">
+            
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div id="edit-container">
+            <div id="edit-card">
+                <input id="edit-position" type="text" placeholder="Position">
+                <input id="edit-company" type="text" placeholder="Company">
+                <input id="edit-status" list="status">
+                
+                <datalist id="status">
+                    <option value="Pending">
+                    <option value="Interview">
+                    <option value="Declined">
+                </datalist>
+            </div>
+
+            <input id="submit-edit" type="button" value="submit">
+        </div>
+    </div>
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/interaction.js"></script>
+    <script src="./js/api.js"></script>
+</body>
+
+</html>

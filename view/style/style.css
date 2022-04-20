@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #F8FAFC;
+}
+.container
+{
+    margin: 50px auto;
+    width: 70%;
+}
+/* *************** */
+.header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.header .logo
+{
+    width: 100px;
+    height: 60px;
+    background-color: #655DFF;
+}
+.header .btn-container
+{
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    position: relative;
+}
+#info-btn
+{
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgb(6 24 0 / 16%) -4px 7px 10px 2px;
+    background-color: #655DFF;
+    color: white;
+    font-size: 18px;
+    padding: 7px;
+    cursor: pointer;
+
+}
+.dropdown
+{
+    width: 100%;
+    background-color: white;
+    color: #655DFF;
+    padding: 15px 10px;
+    font-weight: 500;
+    border: none;
+    position: absolute;
+    visibility: hidden;
+    z-index: 100;
+    right: 0;
+    bottom: -50%;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+
+}
+#logout-btn
+{
+    width: 100%;
+    color: #655DFF;
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+/* form */
+.auth, .job-add
+{
+    margin: auto;
+    background-color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    max-width: 90%;
+    border-radius: 5px;
+    border-top: 5px solid #655DFF;
+}
+#auth-form, #job-form
+{
+    display: flex;
+    flex-direction: column;
+}
+.auth .title, .job-add .title
+{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#auth-form input, #job-form input
+{
+    margin-bottom: 20px;
+    background-color:#F8FAFC;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+#auth-form input[type="submit"],
+#job-form input[type="submit"]
+{
+    background-color: #655DFF;
+    color: white;
+    font-size: 18px;
+}
+#discription a {
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #655DFF;
+    font-size: 18px;
+}
+
+/* jobs */
+.jobs .container
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.jobs .job
+{
+    background-color: white;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.jobs .job .position
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+.jobs .job .company,
+.jobs .job .date
+{
+    color: #444;
+    margin: 10px 0;
+}
+.jobs .job .status
+{
+    margin: 15px 0;
+}
+.jobs .job .status span
+{
+    
+    background-color: #F6F3D6;
+    padding: 5px 15px;
+    color: #444;
+}
+
+.jobs .job .options
+{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.jobs .job .options :first-child
+{
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: red;
+}
+.jobs .job .options :nth-child(2) {
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: green;
+}
+
+
+/* edit job */
+#edit-container
+{
+    position: relative;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    background-color: #655DFF;
+    width: 300px;
+    padding: 15px;
+    z-index: 101;
+}
+
+.overlay
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(68, 68, 68, 0.459);
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+#edit-card
+{
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+}
+#edit-card input
+{
+    margin-bottom: 20px;
+    background-color:#F8FAFC;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+
+/* ************** */
+.visible
+{
+    visibility: visible;
+}
+.hide
+{
+    visibility: hidden;
+}
