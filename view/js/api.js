@@ -14,6 +14,7 @@ let job_company;
 let job_status;
 let job_id;
 
+const api_link = `https://job-api-node01.herokuapp.com/`;
 
 const renderjobs = (jobs)=>{
     jobs_container.innerHTML = ""
@@ -38,7 +39,7 @@ const renderjobs = (jobs)=>{
 
 
 const ADD_JOB = () => {
-	return fetch("http://localhost:3000/api/v1/jobs", {
+	return fetch(`${api_link}api/v1/jobs`, {
 		method: "POST",
 		headers: {
 			Accept: "application/json, text/plain, */*",
@@ -50,7 +51,7 @@ const ADD_JOB = () => {
 };
 
 const GET_JOB = ()=>{
-    return fetch("http://localhost:3000/api/v1/jobs", {
+    return fetch(`${api_link}api/v1/jobs`, {
 			method: "GET",
 			headers: {
 				Accept: "application/json, text/plain, */*",
@@ -62,7 +63,7 @@ const GET_JOB = ()=>{
 
 const DELETE_JOB = (id)=>{
     
-    return fetch(`http://localhost:3000/api/v1/jobs/${id}`, {
+    return fetch(`${api_link}api/v1/jobs/${id}`, {
 			method: "DELETE",
 			headers: {
 				authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -144,7 +145,7 @@ submit_edit.addEventListener("click", async (e)=>{
     const edit_status = document.getElementById("edit-status").value;
 
     // console.log(edit_position, edit_company, edit_status);
-    const data = await fetch(`http://localhost:3000/api/v1/jobs/${job_id}`, {
+    const data = await fetch(`${api_link}api/v1/jobs/${job_id}`, {
 			method: "PATCH",
 			headers: {
 				Accept: "application/json, text/plain, */*",
@@ -153,11 +154,10 @@ submit_edit.addEventListener("click", async (e)=>{
 			},
 			body: JSON.stringify({
 				position: edit_position,
-                company: edit_company,
-                status: edit_status
+				company: edit_company,
+				status: edit_status,
 			}),
-
-		}).then((res)=> res.json())
+		}).then((res) => res.json());
         overlay.classList.remove("visible");
         addJobBtn.click()
 })
